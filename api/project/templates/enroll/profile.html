@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" 
+      integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+      <!-- JavaScript Bundle with Popper.js -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" 
+      integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous">
+      </script>
+</head>
+<body style="background-color: rgb(240, 255, 158);">
+
+
+<div class="row">
+  {% if fight %}
+    <div class="col-sm-3">
+      
+    </div>
+    <div class="col-sm-7" >
+      
+<!--     
+     
+        <h3 style="margin-top:25px;text-align: center;">Welcome to Dashboard {{fb.first_name}}</h3> -->
+
+
+       <table class="table" style="margin-top:60px;">
+             <thead>
+               <tr>
+                 <th scope="col">Name</th>
+                 <th scope="col">Last Name</th>
+                 <th scope="col">Email</th>
+                 <th scope="col">City</th>
+                 <th scope="col">State</th>
+                 <th scope="col">Pincode</th>
+                
+               </tr>
+             </thead>
+          
+             <tbody>
+              {% for fb in fight %}
+          
+        <h1>Welcome to Dashboard {{fb.first_name}}</h1>
+      <img src="{{fb.image.url}}" alt="" height="100" width="100" class="mt-2">
+               <tr>
+               
+                 <th scope="row">{{fb.first_name}}</th>
+                 
+                 <td>{{ fb.last_name }}</td>
+                
+                 <td>{{ fb.email }}</td>
+                  <td>{{ fb.city }}</td>
+                   <td>{{ fb.state }}</td>
+                      <td>{{ fb.pincode }}</td>
+               </tr>
+               {% endfor %}
+             </tbody>
+            
+           </table>
+          
+             
+    </div>
+    <div class="col-sm-2 mt-2">
+        
+ <a href="{% url 'logout' %}" class="btn btn-primary" >Logout</a>
+
+    </div>
+    {% else %}
+    <h1 style="text-align: center;">write correct user name and password</h1>
+    {% endif %}
+</div>
+
+</body>
+</html>
